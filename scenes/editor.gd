@@ -23,24 +23,40 @@ func place(type, pos: Vector2):
 var hover_blk: Block
 var hover_type: Block.BlockType
 
-func hover(block, pos: Vector2):
+func hover(type: Block.BlockType, pos: Vector2):
+	hover_blk = Block.add(type)
+	hover_blk.find_child("Sprite2D").modulate.a = 0.5
+	hover_blk.position = Vector2(
+		round(pos.x/grid) * grid,
+		round(pos.y/grid) * grid
+	)
 	pass
 
 var materials = Block.BlockType.values()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(selected)
 	mouse_pos = get_global_mouse_position() #cam.get_viewport().get_mouse_position()
 	
-func _unhandled_input(input: InputEvent) -> void:
-	if input is InputEventMouseButton:
-		if selected == Block.BlockType.none:
-			remove_child(hover_blk)
+	if selected == Block.BlockType.none and hover_blk is Block:
+			hover_blk.queue_free()
 		
-		if selected != hover_type:
-			hover_blk = Block.add(selected)
+	if selected != hover_type:
+		hover_blk = Block.add(selected)
 			
-		
-		if input.pressed == true and input.button_index == MOUSE_BUTTON_LEFT:
-			place(selected, mouse_pos)
-			print("placed")
+	hover(selected, mouse_pos)
+	
+	if Input.is_action_pressed("LMB") == true:
+		place(selected, mouse_pos)
+		print("placed")
+		#selected = Block.BlockType.none
+			
+	
+
+var slots = [ ]
+func _unhandled_input(input: InputEvent) -> void:
+	if input is InputEventKey:
+		for i in 10:
+			if input.pressed == true and input.keycode == KEY_0 + i:
+				selected = i
 	

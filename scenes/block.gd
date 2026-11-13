@@ -1,9 +1,11 @@
 class_name Block
 extends Area2D
 
-enum BlockType {plastic, wood, none}
+enum BlockType {none, plastic, wood}
 
 var textarr = [
+	"",
+	"res://assets/icon.svg",
 	"res://assets/icon.svg"
 ]
 
