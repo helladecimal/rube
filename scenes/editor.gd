@@ -30,6 +30,7 @@ func hover(type: Block.BlockType, pos: Vector2):
 		round(pos.x/grid) * grid,
 		round(pos.y/grid) * grid
 	)
+	add_child(hover_blk)
 	pass
 
 var materials = Block.BlockType.values()
@@ -38,20 +39,18 @@ func _process(delta: float) -> void:
 	print(selected)
 	mouse_pos = get_global_mouse_position() #cam.get_viewport().get_mouse_position()
 	
-	if selected == Block.BlockType.none and hover_blk is Block:
+	if hover_blk is Block:
 			hover_blk.queue_free()
 		
 	if selected != hover_type:
-		hover_blk = Block.add(selected)
-			
-	hover(selected, mouse_pos)
+		hover_type = selected
 	
 	if Input.is_action_pressed("LMB") == true:
 		place(selected, mouse_pos)
 		print("placed")
 		#selected = Block.BlockType.none
-			
 	
+	hover(selected, mouse_pos)
 
 var slots = [ ]
 func _unhandled_input(input: InputEvent) -> void:
