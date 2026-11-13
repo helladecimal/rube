@@ -4,6 +4,7 @@
 
 [node name="Node2D" type="Node2D" unique_id=1816461076]
 script = ExtResource("1_b1cmn")
+grid = 16
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=191940169]
 zoom = Vector2(2, 2)
