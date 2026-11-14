@@ -2,9 +2,17 @@
 
 [ext_resource type="Script" uid="uid://mkksusjsei2r" path="res://scenes/editor.gd" id="1_b1cmn"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(16, 16)
+
 [node name="Node2D" type="Node2D" unique_id=1816461076]
 script = ExtResource("1_b1cmn")
 grid = 16
+
+[node name="CollCheck" type="Area2D" parent="." unique_id=897377445]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollCheck" unique_id=637649607]
+shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=191940169]
 zoom = Vector2(2, 2)
