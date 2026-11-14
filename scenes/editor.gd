@@ -20,13 +20,13 @@ func place(type, pos: Vector2):
 			round(pos.y/grid) * grid
 		)
 		
-		col_check.position = Vector2(block.position.x, block.position.y)
 		
-		print(col_check.has_overlapping_bodies())
 		if col_check.has_overlapping_bodies():
+			print(col_check.has_overlapping_bodies())
+			
 			for block_overlap: Block in col_check.get_overlapping_bodies():
+				print(block_overlap.position, col_check.position)
 				block_overlap.queue_free()
-			print("hi")
 				
 		add_child(block)
 		pass
@@ -60,7 +60,10 @@ func _process(delta: float) -> void:
 		place(selected, mouse_pos)
 		
 		#selected = Block.BlockType.none
-	
+	col_check.position = Vector2(
+		round(mouse_pos.x/grid) * grid,
+		round(mouse_pos.y/grid) * grid
+	)
 	hover(selected, mouse_pos)
 	
 

@@ -1,5 +1,5 @@
 class_name Block
-extends Area2D
+extends StaticBody2D
 
 enum BlockType {none, plastic, wood, air}
 
