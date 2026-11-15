@@ -1,13 +1,12 @@
 class_name Block
 extends StaticBody2D
 
-enum BlockType {none, plastic, wood, air}
+enum BlockType {none, plastic, wood}
 
 var textarr = [
 	"",
 	"res://assets/icon.svg",
 	"res://assets/icon.svg",
-	""
 ]
 
 @export var BlockMaterial: BlockType = BlockType.plastic

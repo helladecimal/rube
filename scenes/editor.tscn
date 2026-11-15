@@ -18,5 +18,5 @@ shape = SubResource("RectangleShape2D_yf5fn")
 zoom = Vector2(2, 2)
 
 [node name="PlaceDebounce" type="Timer" parent="." unique_id=936457422]
-wait_time = 0.2
+wait_time = 0.15
 one_shot = true

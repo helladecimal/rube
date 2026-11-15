@@ -51,21 +51,28 @@ func hover(type: Block.BlockType, pos: Vector2):
 var materials = Block.BlockType.values()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @export var is_dragging = false
+@export var is_erasing = false
 func _process(delta: float) -> void:
 	mouse_pos = get_global_mouse_position() #cam.get_viewport().get_mouse_position()
 	
-	if hover_blk is Block:
+	if is_instance_valid(hover_blk):
 		hover_blk.queue_free()
 		
 	if selected != hover_type:
 		hover_type = selected
+		
+	if Input.is_action_just_pressed("Erase"):
+		is_erasing = not is_erasing
 	
 	if Input.is_action_pressed("LMB") == true and deb.is_stopped():
-		place(selected, mouse_pos)
-		
-		if not is_dragging:
-			deb.start()
-			is_dragging = true
+		if not is_erasing:
+			place(selected, mouse_pos)
+			
+			if not is_dragging: # are you rushing or are you dragging
+				deb.start()
+				is_dragging = true
+		else:
+			erase()
 	
 	if Input.is_action_just_pressed("LMB"):
 		is_dragging = false
@@ -75,7 +82,9 @@ func _process(delta: float) -> void:
 		round(mouse_pos.x/grid) * grid,
 		round(mouse_pos.y/grid) * grid
 	)
-	hover(selected, mouse_pos)
+	
+	if not is_erasing:
+		hover(selected, mouse_pos)
 	
 	
 
