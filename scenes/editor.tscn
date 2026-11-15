@@ -16,3 +16,7 @@ shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=191940169]
 zoom = Vector2(2, 2)
+
+[node name="PlaceDebounce" type="Timer" parent="." unique_id=936457422]
+wait_time = 0.2
+one_shot = true

@@ -11,6 +11,7 @@ func _ready() -> void:
 @export var selected: Block.BlockType
 var mouse_pos: Vector2 = Vector2()
 @onready var col_check = $CollCheck
+@onready var deb = $PlaceDebounce
 
 func place(type, pos: Vector2):
 	if type != Block.BlockType.none:
@@ -20,16 +21,18 @@ func place(type, pos: Vector2):
 			round(pos.y/grid) * grid
 		)
 		
+		erase()
 		
-		if col_check.has_overlapping_bodies():
+		add_child(block)
+		pass
+
+func erase():
+	if col_check.has_overlapping_bodies():
 			print(col_check.has_overlapping_bodies())
 			
 			for block_overlap: Block in col_check.get_overlapping_bodies():
 				print(block_overlap.position, col_check.position)
 				block_overlap.queue_free()
-				
-		add_child(block)
-		pass
 
 var hover_blk: Block
 var hover_type: Block.BlockType
@@ -47,6 +50,7 @@ func hover(type: Block.BlockType, pos: Vector2):
 
 var materials = Block.BlockType.values()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@export var is_dragging = false
 func _process(delta: float) -> void:
 	mouse_pos = get_global_mouse_position() #cam.get_viewport().get_mouse_position()
 	
@@ -56,8 +60,15 @@ func _process(delta: float) -> void:
 	if selected != hover_type:
 		hover_type = selected
 	
-	if Input.is_action_pressed("LMB") == true:
+	if Input.is_action_pressed("LMB") == true and deb.is_stopped():
 		place(selected, mouse_pos)
+		
+		if not is_dragging:
+			deb.start()
+			is_dragging = true
+	
+	if Input.is_action_just_pressed("LMB"):
+		is_dragging = false
 		
 		#selected = Block.BlockType.none
 	col_check.position = Vector2(
@@ -65,6 +76,7 @@ func _process(delta: float) -> void:
 		round(mouse_pos.y/grid) * grid
 	)
 	hover(selected, mouse_pos)
+	
 	
 
 var slots = [ ]
