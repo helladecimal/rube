@@ -22,3 +22,37 @@ anchor_mode = 0
 [node name="PlaceDebounce" type="Timer" parent="Node2D" unique_id=936457422]
 wait_time = 0.15
 one_shot = true
+
+[node name="UI" type="Control" parent="." unique_id=1568485070]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI" unique_id=1584478045]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.012
+anchor_right = 0.29188892
+anchor_bottom = 0.988
+offset_left = 8.0
+offset_top = 0.22399998
+offset_right = -0.25604248
+offset_bottom = -0.22399902
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/Panel" unique_id=1479915079]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.19000001
+offset_bottom = -0.08000946
+grow_horizontal = 2
+
+[node name="Button" type="Button" parent="UI/Panel/GridContainer" unique_id=1315043883]
+layout_mode = 2
+text_overrun_behavior = 3
+autowrap_trim_flags = 192
+clip_text = true
