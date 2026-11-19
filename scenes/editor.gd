@@ -7,7 +7,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 @onready var cam: Camera2D = $Camera2D
-@export var grid = 8
+@export var grid = 64
 @export var selected: Block.BlockType
 var mouse_pos: Vector2 = Vector2()
 @onready var col_check = $CollCheck

@@ -3,13 +3,12 @@
 [ext_resource type="Script" uid="uid://mkksusjsei2r" path="res://scenes/editor.gd" id="1_b1cmn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(8, 8)
+size = Vector2(48, 48)
 
 [node name="Main" type="Node" unique_id=1812108054]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1816461076]
 script = ExtResource("1_b1cmn")
-grid = 16
 
 [node name="CollCheck" type="Area2D" parent="Node2D" unique_id=897377445]
 
@@ -45,6 +44,21 @@ grow_vertical = 2
 
 [node name="BoxContainer" type="BoxContainer" parent="UI/Panel" unique_id=153276403]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-alignment = 1
+offset_right = 328.0
+offset_bottom = 208.0
+
+[node name="Button" type="Button" parent="UI/Panel/BoxContainer" unique_id=758286609]
+layout_mode = 2
+text = "a"
+
+[node name="Button2" type="Button" parent="UI/Panel/BoxContainer" unique_id=198509163]
+layout_mode = 2
+text = "a"
+
+[node name="Button3" type="Button" parent="UI/Panel/BoxContainer" unique_id=266057045]
+layout_mode = 2
+text = "a"
+
+[node name="Button4" type="Button" parent="UI/Panel/BoxContainer" unique_id=536570670]
+layout_mode = 2
+text = "a"
