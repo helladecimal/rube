@@ -3,7 +3,7 @@ extends StaticBody2D
 
 enum BlockType {none, plastic, wood}
 
-var textarr = [
+@export var textarr = [
 	"",
 	"res://assets/icon.svg",
 	"res://assets/icon.svg",
