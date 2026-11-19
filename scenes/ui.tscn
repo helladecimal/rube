@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dnxnjwgik2fjh"]
+
+[node name="UI" type="Control" unique_id=1146016060]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=712344753]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.012
+anchor_right = 0.29188892
+anchor_bottom = 0.988
+offset_left = 8.0
+offset_top = 0.22399998
+offset_right = -0.25604248
+offset_bottom = -0.22399902
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel" unique_id=481738598]
+layout_mode = 0
+offset_right = 328.0
+offset_bottom = 208.0
+vertical = true
