@@ -78,9 +78,11 @@ func _process(delta: float) -> void:
 		is_dragging = false
 		
 	if Input.is_action_just_pressed("Zoom In"):
-		cam.zoom += Vector2(0.25, 0.25)
+		cam.zoom += Vector2(0.1, 0.1)
+
 	if Input.is_action_just_pressed("Zoom Out"):	
-		cam.zoom -= Vector2(0.25, 0.25)
+		
+		cam.zoom -= Vector2(0.1, 0.1)
 		
 		#selected = Block.BlockType.none
 	col_check.position = Vector2(
@@ -99,4 +101,6 @@ func _unhandled_input(input: InputEvent) -> void:
 		for i in 10:
 			if input.pressed == true and input.keycode == KEY_0 + i:
 				selected = i
+	if input is InputEventMouseMotion and Input.is_action_pressed("Pan"):
+		cam.position -= input.relative/cam.zoom
 	
