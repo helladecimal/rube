@@ -3,6 +3,7 @@ extends Node2D
 @onready var cam: Camera2D = $Camera2D
 @export var grid = 64
 @export var selected: Block.BlockType
+@export var launchdir = 0.0
 var mouse_pos: Vector2 = Vector2()
 @onready var col_check = $CollCheck
 @onready var deb = $PlaceDebounce
@@ -76,10 +77,12 @@ func _process(delta: float) -> void:
 			else:
 				erase()
 		else:
+			
 			ballpreview.position = Vector2(
 			round(mouse_pos.x/grid) * grid,
 			round(mouse_pos.y/grid) * grid
-		)
+			)
+			
 	
 	if Input.is_action_just_pressed("LMB"):
 		is_dragging = false

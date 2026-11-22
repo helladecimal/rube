@@ -36,9 +36,3 @@ shape = SubResource("CircleShape2D_g4v7s")
 [node name="Sprite2D" type="Sprite2D" parent="Editor/BallPreview" unique_id=1321772746]
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("3_ba0ut")
-
-[node name="Arrow" type="ColorRect" parent="Editor/BallPreview" unique_id=1955896677]
-offset_top = -2.0
-offset_right = 72.0
-offset_bottom = 2.0
-color = Color(1, 1, 1, 0.39607844)
