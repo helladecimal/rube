@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nt7q6")
 
-[node name="Panel" type="Panel" parent="." unique_id=712344753]
+[node name="Panel" type="PanelContainer" parent="." unique_id=513371423]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.012
@@ -27,17 +27,19 @@ offset_bottom = -0.22399902
 grow_vertical = 2
 
 [node name="BlockButtons" type="VBoxContainer" parent="Panel" unique_id=1272870560]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Button" type="Button" parent="Panel/BlockButtons" unique_id=2063425144]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_x4jx1")
 text = "
 "
 icon = ExtResource("2_x4jx1")
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BlockButtons/Button" unique_id=713347252]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
