@@ -23,7 +23,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="Panel/BlockButtons" unique_id=2063425144]
+[node name="MatTemplate" type="Button" parent="Panel/BlockButtons" unique_id=2063425144]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_x4jx1")
@@ -32,7 +32,16 @@ text = "
 icon = ExtResource("2_x4jx1")
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/BlockButtons/Button" unique_id=713347252]
+[node name="TextureRect" type="TextureRect" parent="Panel/BlockButtons/MatTemplate" unique_id=713347252]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="Panel" unique_id=751745382]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 10
+theme = SubResource("Theme_x4jx1")
+text = "start
+"
+expand_icon = true

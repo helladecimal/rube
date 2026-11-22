@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://mkksusjsei2r" path="res://scenes/editor.gd" id="1_b1cmn"]
 [ext_resource type="PackedScene" uid="uid://dnxnjwgik2fjh" path="res://scenes/ui.tscn" id="2_ba0ut"]
+[ext_resource type="Texture2D" uid="uid://d3maq4cvhetp7" path="res://assets/icon.svg" id="3_ba0ut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(48, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 32.0
 
 [node name="Main" type="Node" unique_id=1812108054]
 
@@ -23,3 +27,18 @@ shape = SubResource("RectangleShape2D_yf5fn")
 [node name="PlaceDebounce" type="Timer" parent="Editor" unique_id=936457422]
 wait_time = 0.15
 one_shot = true
+
+[node name="BallPreview" type="Area2D" parent="Editor" unique_id=1524064582]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Editor/BallPreview" unique_id=774807954]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Editor/BallPreview" unique_id=1321772746]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("3_ba0ut")
+
+[node name="Arrow" type="ColorRect" parent="Editor/BallPreview" unique_id=1955896677]
+offset_top = -2.0
+offset_right = 72.0
+offset_bottom = 2.0
+color = Color(1, 1, 1, 0.39607844)

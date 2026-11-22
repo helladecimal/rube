@@ -3,10 +3,10 @@ extends CanvasLayer
 @export var selected: Block.BlockType
 @onready var blockcont := $Panel/BlockButtons
 @onready var Editor := $"../Editor"
-@onready var button: Button = $Panel/BlockButtons/Button.duplicate()
+@onready var button: Button = $Panel/BlockButtons/MatTemplate.duplicate()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Panel/BlockButtons/Button.queue_free()
+	$Panel/BlockButtons/MatTemplate.queue_free()
 	for blocks in Block.BlockType:
 		if blocks != "none":
 			var new = button.duplicate()

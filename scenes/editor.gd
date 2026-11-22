@@ -1,17 +1,18 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print(materials)
-	pass # Replace with function body.
-
 @onready var cam: Camera2D = $Camera2D
 @export var grid = 64
 @export var selected: Block.BlockType
 var mouse_pos: Vector2 = Vector2()
 @onready var col_check = $CollCheck
 @onready var deb = $PlaceDebounce
+@onready var ballpreview = $BallPreview
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	print(materials)
+	$BallPreview/Sprite2D.modulate.a = 0.5
+	pass # Replace with function body.
 
 func place(type, pos: Vector2):
 	if type != Block.BlockType.none:
@@ -65,14 +66,20 @@ func _process(delta: float) -> void:
 		is_erasing = not is_erasing
 	
 	if Input.is_action_pressed("LMB") == true and deb.is_stopped():
-		if not is_erasing:
-			place(selected, mouse_pos)
-			
-			if not is_dragging: # are you rushing or are you dragging
-				deb.start()
-				is_dragging = true
+		if not ballpreview in col_check.get_overlapping_areas():
+			if not is_erasing:
+				place(selected, mouse_pos)
+				
+				if not is_dragging: # are you rushing or are you dragging
+					deb.start()
+					is_dragging = true
+			else:
+				erase()
 		else:
-			erase()
+			ballpreview.position = Vector2(
+			round(mouse_pos.x/grid) * grid,
+			round(mouse_pos.y/grid) * grid
+		)
 	
 	if Input.is_action_just_pressed("LMB"):
 		is_dragging = false

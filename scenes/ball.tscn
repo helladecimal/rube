@@ -8,6 +8,5 @@
 physics_material_override = SubResource("PhysicsMaterial_sgp6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1771669463]
-position = Vector2(0, -176)
 shape = SubResource("CircleShape2D_g4v7s")
 debug_color = Color(0.8463823, 0.0009889907, 0.9098306, 0.41960785)
