@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @export var selected: Block.BlockType
 @onready var blockcont := $Panel/BlockButtons

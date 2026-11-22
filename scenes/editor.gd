@@ -77,6 +77,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("LMB"):
 		is_dragging = false
 		
+	if Input.is_action_just_pressed("Zoom In"):
+		cam.zoom += Vector2(0.25, 0.25)
+	if Input.is_action_just_pressed("Zoom Out"):	
+		cam.zoom -= Vector2(0.25, 0.25)
+		
 		#selected = Block.BlockType.none
 	col_check.position = Vector2(
 		round(mouse_pos.x/grid) * grid,
